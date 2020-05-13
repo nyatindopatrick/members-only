@@ -1,15 +1,12 @@
-# frozen_string_literal: true
-
 class PostsController < ApplicationController
-  before_action :require_login, except: %i[index new create]
+  before_action :require_login, except: %i[index]
   def index
     @posts = Post.all
     @users = User.all
   end
 
   def new
-   @posts = Post.new
-
+    @posts = Post.new
   end
 
   def create
@@ -24,6 +21,13 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @user = User.find(@post.user_id)
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to posts_path
   end
 
   private

@@ -1,11 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,300;0,500;1,200&display=swap')
-
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,300;1,200&family=Montserrat:ital,wght@0,200;0,500;0,600;1,200;1,300&family=Roboto:wght@300&display=swap')
 nav
     display: flex
     align-items: center
     height: 7vh
     font-size: 1.2rem
-    background: linear-gradient(170deg, rgba(51, 13, 33, 0.9), rgba(189, 41, 120, 1))
+    background: linear-gradient(170deg, rgba(39, 12, 26, 0.9), #832758)
     a
         padding: 1.5rem
         text-decoration: none
@@ -20,14 +19,34 @@ nav
     position: relative
     top: -6rem
     display: flex
-    justify-content: center
+    flex-direction: column
+    align-items: center
     >div
         background: #fff
         border-radius: 10px
         padding: 1rem 1.2rem
         width: 45vw
-        box-shadow: -1px 1px 8px black
+        box-shadow: 4px 5px 17px 5px rgba(0,0,0,0.42)
         position: relative
+        margin: 1rem
+        p
+            font-family: 'Roboto', sans-serif
+            font-weight: 500
+            color: grey
+            padding-bottom: 1rem
+        p[id="info"]
+            display: flex
+            justify-content: space-between
+            padding-bottom: 10px
+        i
+            font-style: italic
+            font-weight: 500
+            color: black
+        i[id="date"]
+            color: #952f66
+            text-align: right
+            align-self: flex-end
+
         img
             width: 2.5rem
             position: absolute
@@ -39,3 +58,34 @@ nav
             display: flex
             flex-direction: column
             padding-left: 1.4rem
+.flash
+    display: flex
+    top: 1rem
+    justify-content: center
+    position: relative
+    z-index: 1000
+    >p
+        background: #f4e8ec
+        padding: 1rem
+        position: fixed
+        border-radius: 10px
+.view-path
+    color: white
+    background: #952f66
+    text-decoration: none
+    font-weight: 600
+    padding: 10px 1rem
+    margin: 10px 5rem
+    border-radius: 10px
+.delete-path
+    color: white
+    background: red
+    text-decoration: none
+    font-weight: 600
+    padding: 10px 1rem
+    margin: 10px 5rem
+    border-radius: 10px
+.open-path
+    color: #952f66
+    text-decoration: none
+    font-weight: 600

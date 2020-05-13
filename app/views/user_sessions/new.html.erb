@@ -1,17 +1,28 @@
 <h1>Login</h1>
+<div class="split left">
+  <div class="centered">
 
-<%= form_tag user_sessions_path, method: :post do %>
+  </div>
+</div>
+
+<div class="split right">
+  <div class="centered">
+  <h1>LOG IN</h1>
+    <%= form_tag user_sessions_path, method: :post do %>
   <div class="field">
-    <%= label_tag :email %>
-    <%= text_field_tag :email %>
+    <%= email_field_tag :email, nil , placeholder: 'Email'%>
     <br/>
   </div>
   <div class="field">
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
+    <%= password_field_tag :password, nil , placeholder: 'Password' %>
     <br/>
   </div>
   <div class="actions">
     <%= submit_tag "Login" %>
   </div>
 <% end %>
+  <p class="new-member">
+    New to Members Only? <%= link_to  "Register", new_user_path %>
+  </p>
+  </div>
+</div>

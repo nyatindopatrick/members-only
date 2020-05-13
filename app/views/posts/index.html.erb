@@ -1,7 +1,7 @@
 <header>
  <h1>FEATURED POSTS</h1>
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-    <polygon fill="white" points="0,100 100,0 100,100"/>
+    <polygon fill="#fdf4f7" points="0,100 100,0 100,100"/>
   </svg>
 </header>
 
@@ -15,15 +15,22 @@
    
     <h2><%= p.title %></h2>
      <% @users.each do |u|%>
-      <strong>  <%=u.id==p.user_id && logged_in? ? u.username: ""%></strong>
+      <p id="info">
+        <i>  
+          <%=u.id==p.user_id && logged_in? ? u.username: ""%>
+        </i>
+        <i id="date">
+        <%=u.id==p.user_id && logged_in? ? p.created_at.strftime('%B %d, %Y'): ""%>
+        </i>
+      </P>
+
     <%end%>
      </div>
     </div>
         <p>
         <%= p.text %>
-       
         <p>
-        <%= link_to "View", logged_in? ?post_path(p) : login_path %>
+        <%= link_to "View", logged_in? ?post_path(p) : login_path, class: "open-path" %>
     </div>
 <% end %>
 </div>

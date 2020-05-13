@@ -16,8 +16,14 @@
   </div>
 
   <ul>
+    <li>
+    <% if logged_in? %>
+      <%=  link_to  "Create Post", new_post_path%>
+    <%end%>
+    
+  </li>
   <li>
-  <%=  link_to  "Register", new_user_path%>
+    <%=  link_to  "Register", new_user_path%>
   </li>
   <li>
         <% if logged_in? %>
@@ -28,9 +34,13 @@
   </li>
   </ul>
   </nav>
- <p class="flash">
+  <%if flash.notice%>
+ <div class="flash">
+ <p>
     <%= flash.notice %>
   </p>
+  </div>
+  <%end%>
   <div id="container">
     <div id="content">
       <%= yield %>
