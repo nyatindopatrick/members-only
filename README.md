@@ -10,6 +10,9 @@ The app allows users to register, login, create and view posts
 - sqlite3
 - VS Code
 
+# Live Demo
+You can find the live version of the app here: https://members-gossips.herokuapp.com
+
 # Get Started
 
 - You first need to clone the repository
