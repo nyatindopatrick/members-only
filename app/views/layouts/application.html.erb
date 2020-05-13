@@ -10,6 +10,24 @@
   </head>
 
   <body>
+  <nav>
+  <div>
+  <%= link_to  "MEMBERS ONLY", posts_path %>
+  </div>
+
+  <ul>
+  <li>
+  <%=  link_to  "Register", new_user_path%>
+  </li>
+  <li>
+        <% if logged_in? %>
+          <%= link_to "logout", logout_path %>
+        <% else %>
+          <%= link_to "login", login_path %>
+       <%end%>
+  </li>
+  </ul>
+  </nav>
  <p class="flash">
     <%= flash.notice %>
   </p>
