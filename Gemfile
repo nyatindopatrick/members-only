@@ -13,11 +13,11 @@ gem 'puma', '~> 4.1'
 gem 'rubocop'
 group :development, :test do
   gem 'sqlite3'
- end
- 
- group :production do
-   gem 'pg'
- end
+end
+
+group :production do
+  gem 'pg'
+end
 
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
