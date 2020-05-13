@@ -1,0 +1,26 @@
+<div class="posts-list">
+<h1>FEATURED POSTS</h1>
+ <h6 class="login">
+        <% if logged_in? %>
+          <%= link_to "logout", logout_path %>
+        <% else %>
+          <%= link_to "login", login_path %>
+       <%end%>
+      </h6>
+
+<% @posts.each do |p|%>
+
+<div class="post-item">
+    <div>
+    <h2><%= p.title %></h2>
+    </div>
+        <p>
+        <%= p.text %>
+        <% @users.each do |u|%>
+      <strong>  <%=u.id==p.user_id && logged_in? ? u.username: ""%></strong>
+    <%end%>
+        <p>
+        <%= link_to "View", logged_in? ?post_path(p) : login_path %>
+    </div>
+<% end %>
+</div>

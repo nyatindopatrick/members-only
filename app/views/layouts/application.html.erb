@@ -10,6 +10,13 @@
   </head>
 
   <body>
-    <%= yield %>
+ <p class="flash">
+    <%= flash.notice %>
+  </p>
+  <div id="container">
+    <div id="content">
+      <%= yield %>
+    </div>
+  </div>
   </body>
 </html>
