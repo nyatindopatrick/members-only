@@ -45,5 +45,39 @@
         padding: 2rem
 .new-member
     padding: 1.5rem 0px
-    a 
+    a
         text-decoration: none
+@media (max-width: 768px)
+    .split
+        height: 100%
+        width: 100%
+        position: fixed
+        z-index: 1
+        top: 0
+        overflow-x: hidden
+        padding-top: 20px
+    .left
+        display: none
+@media (min-width: 768px ) and (max-width: 1024px)
+    .split
+        height: 100%
+        width: 100%
+        z-index: 1
+        top: 0
+        overflow-x: hidden
+        padding-top: 20px
+
+    .left
+        display: none
+    .right
+        width: 100%
+    .centered
+        display: flex
+        justify-content: center
+        align-items: center
+        flex-direction: column
+        width: 100%
+        // top: 40%
+        // left: 50%
+        // transform: translate(-50%, -50%)
+        // text-align: center
