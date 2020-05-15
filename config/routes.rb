@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root 'posts#index'
   resources :users, only: [ :new, :create, :show]
   resources :posts, only: [:new, :create, :index, :show, :destroy] 
