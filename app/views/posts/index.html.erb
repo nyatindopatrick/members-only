@@ -1,0 +1,32 @@
+<header>
+  <h1>FEATURED POSTS</h1>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+    <polygon fill="#fdf4f7" points="0,100 100,0 100,100"/>
+  </svg>
+</header>
+<div class="post-list">
+  <% @posts.each do |p|%>
+    <div class="post-item">
+      <div>
+        <img src="https://image.flaticon.com/icons/svg/2919/2919600.svg" alt="user">
+        <div>
+          <h2><%= p.title %></h2>
+          <% @users.each do |u|%>
+            <p id="info">
+              <i>
+                <%=u.id==p.user_id && user_signed_in? ? u.username: ""%>
+              </i>
+              <i id="date">
+                <%=u.id==p.user_id && user_signed_in? ? p.created_at.strftime('%B %d, %Y'): ""%>
+              </i>
+            </P>
+          <%end%>
+        </div>
+      </div>
+      <p>
+        <%= p.text %>
+      </p>
+      <%= link_to "View", user_signed_in? ?post_path(p) : new_user_session_path, class: "open-path" %>
+    </div>
+  <% end %>
+</div>

@@ -4,12 +4,45 @@
     <title>MembersOnly</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <%= yield %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <nav>
+      <div>
+        <%= link_to  "MEMBERS ONLY", posts_path %>
+      </div>
+      <ul>
+        <li>
+          <% if user_signed_in? %>
+            <%=  link_to  "Create Post", new_post_path%>
+          <%end%>
+        </li>
+        <li>
+          <%=  link_to  "Register", new_user_registration_path%>
+        </li>
+        <li>
+          <% if user_signed_in? %>
+            <%= link_to "logout", destroy_user_session_path, method: :delete %>
+          <% else %>
+            <%= link_to "login", new_user_session_path %>
+          <%end%>
+        </li>
+      </ul>
+    </nav>
+    <%if flash.notice%>
+      <div class="flash">
+        <p>
+          <%= flash.notice %>
+        </p>
+      </div>
+    <%end%>
+    <div id="container">
+      <div id="content">
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>
