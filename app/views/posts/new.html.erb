@@ -1,0 +1,27 @@
+<h1>Create a post</h1>
+<div class="new-post">
+  <div>
+    <%= form_for @posts, local: true do |f| %>
+      <ul>
+        <% @posts.errors.full_messages.each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+      <p>
+        <%= f.label :title %><br />
+        <%= f.text_field :title %>
+      </p>
+      <br/>
+      <br/>
+      <p>
+        <%= f.label :text %><br />
+        <%= f.text_area :text %>
+      </p>
+      <br/>
+      <br/>
+      <p>
+        <%= f.submit %>
+      </p>
+    <% end %>
+  </div>
+</div>

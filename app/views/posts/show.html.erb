@@ -1,0 +1,31 @@
+<header>
+  <h1><%= @post.title%></h1>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+    <polygon fill="#fdf4f7" points="0,100 100,0 100,100"/>
+  </svg>
+</header>
+<div class="view">
+  <div class="view-post">
+    <div>
+      <img src="https://image.flaticon.com/icons/svg/2919/2919600.svg" alt="user">
+      <div>
+        <h2><%= @post.title %></h2>
+        <p id="info">
+          <i>
+            <%= @user.username%>
+          </i>
+          <i id="date">
+            <%= @post.created_at.strftime('%B %d, %Y')%>
+          </i>
+        </P>
+      </div>
+    </div>
+    <p>
+      <%= @post.text %>
+    </p>
+    <%= link_to "Back", posts_path, class: "view-path" %>
+    <%if @owner.id == @post.user_id%>
+      <%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Really delete the article?"}, class: "delete-path" %>
+    <%end%>
+  </div>
+</div>
